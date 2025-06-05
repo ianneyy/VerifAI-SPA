@@ -9,7 +9,13 @@ import StarBorder from "@/components/blocks/Animations/StarBorder/StarBorder";
 function Hero1() {
   const [titleNumber, setTitleNumber] = useState(0);
   const titles = useMemo(
-    () => ["accuracy", "credibility", "reliability", "trust", "precise"],
+    () => [
+      "accurately",
+      "intelligently ",
+      "instantly",
+      "effortlessly",
+      "ethically",
+    ],
     []
   );
 
@@ -39,7 +45,7 @@ function Hero1() {
           </div>
           <div className="flex gap-4 flex-col">
             <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center font-regular">
-              <span className="text-spektr-cyan-50">Verify news with</span>
+              <span className="text-spektr-cyan-50">Verify news</span>
               <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
                 &nbsp;
                 {titles.map((title, index) => (
