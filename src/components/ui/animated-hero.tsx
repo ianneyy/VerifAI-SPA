@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import ShinyText from "@/components/blocks/TextAnimations/ShinyText/ShinyText";
 // import GlareHover from "@/components/blocks/Animations/GlareHover/GlareHover";
 import StarBorder from "@/components/blocks/Animations/StarBorder/StarBorder";
+import gadon from "@/assets/gadon.jpg";
 
 function Hero1() {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -86,7 +87,7 @@ function Hero1() {
               speed="5s"
               className="custom-class group relative z-10 bg-slate-950 text-zinc-200 overflow-hidden text-xl duration-1000 cursor-pointer"
             >
-              <div className="flex gap-4 text-center items-center">
+              <a href={gadon} className="flex gap-4 text-center items-center">
                 <ShinyText
                   text="Download VerifAI"
                   disabled={false}
@@ -94,7 +95,7 @@ function Hero1() {
                   className="custom-class"
                 />
                 <Download className="w-4 h-4 text-white/80" />
-              </div>
+              </a>
             </StarBorder>
           </div>
         </div>
