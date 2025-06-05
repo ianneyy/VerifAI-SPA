@@ -32,14 +32,14 @@ export function NavBar({ items, className }: NavBarProps) {
   return (
     <div
       className={cn(
-        "fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-50 mb-6 sm:pt-6",
-        className,
+        "fixed bottom-0 top-auto sm:top-0 sm:bottom-auto left-1/2 -translate-x-1/2 mb-6 sm:pt-6",
+        className
       )}
     >
       <div className="flex items-center gap-3 bg-background/5 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-lg">
         {items.map((item) => {
-          const Icon = item.icon
-          const isActive = activeTab === item.name
+          const Icon = item.icon;
+          const isActive = activeTab === item.name;
 
           return (
             <a
@@ -48,8 +48,8 @@ export function NavBar({ items, className }: NavBarProps) {
               onClick={() => setActiveTab(item.name)}
               className={cn(
                 "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors",
-                "text-foreground/80 hover:text-primary",
-                isActive && "bg-slate-200 text-slate-950",
+                "text-foreground/80 hover:text-slate-900",
+                isActive && "bg-slate-200 text-slate-950"
               )}
             >
               <span className="hidden md:inline">{item.name}</span>
@@ -75,9 +75,9 @@ export function NavBar({ items, className }: NavBarProps) {
                 </motion.div>
               )}
             </a>
-          )
+          );
         })}
       </div>
     </div>
-  )
+  );
 }

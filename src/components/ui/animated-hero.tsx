@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 import { Download, MoveRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ShinyText from "@/components/blocks/TextAnimations/ShinyText/ShinyText";
-import GlareHover from "@/components/blocks/Animations/GlareHover/GlareHover";
+// import GlareHover from "@/components/blocks/Animations/GlareHover/GlareHover";
+import StarBorder from "@/components/blocks/Animations/StarBorder/StarBorder";
 
 function Hero1() {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -31,9 +32,9 @@ function Hero1() {
             <Button
               variant="outline"
               size="sm"
-              className="gap-4 cursor-pointer rounded-full bg-transparent border-white"
+              className="gap-4 text-white cursor-pointer rounded-full bg-cyan-950 border-cyan-950 hover:bg-cyan-800 hover:border-cyan-800"
             >
-              Learn how VeriFAI works <MoveRight className="w-4 h-4" />
+              Learn how VerifAI works <MoveRight className="w-4 h-4" />
             </Button>
           </div>
           <div className="flex gap-4 flex-col">
@@ -63,7 +64,7 @@ function Hero1() {
                   </motion.span>
                 ))}
               </span>
-              &nbsp;using VeriFAI.
+              &nbsp;using VerifAI.
             </h1>
 
             <p className="text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-center">
@@ -72,32 +73,23 @@ function Hero1() {
               confidence.
             </p>
           </div>
-          <div className="flex flex-row gap-3">
-            <GlareHover
-              height="10"
-              width="auto"
-              glareColor="#ffffff"
-              glareOpacity={0.3}
-              glareAngle={-30}
-              glareSize={300}
-              transitionDuration={800}
-              playOnce={false}
-              className="bg-transparent"
+          <div className="flex flex-row gap-3 overflow-auto z-50">
+            <StarBorder
+              as="button"
+              color="white"
+              speed="5s"
+              className="custom-class group relative z-10 bg-slate-950 text-zinc-200 overflow-hidden text-xl duration-1000 cursor-pointer"
             >
-              <Button
-                size="lg"
-                className=" gap-4 cursor-pointer bg-slate-950"
-                variant="outline"
-              >
+              <div className="flex gap-4 text-center items-center">
                 <ShinyText
                   text="Download VerifAI"
                   disabled={false}
                   speed={3}
                   className="custom-class"
                 />
-                <Download className="w-4 h-4" />
-              </Button>
-            </GlareHover>
+                <Download className="w-4 h-4 text-white/80" />
+              </div>
+            </StarBorder>
           </div>
         </div>
       </div>

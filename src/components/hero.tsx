@@ -2,8 +2,19 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Hero1 } from "@/components/ui/animated-hero";
+import { Home, User, Briefcase, FileText } from "lucide-react";
+import { NavBar } from "@/components/ui/tubelight-navbar";
+
+const navItems = [
+  { name: "Home", url: "#", icon: Home },
+  { name: "About", url: "#", icon: User },
+  { name: "Projects", url: "#", icon: Briefcase },
+  { name: "Resume", url: "#", icon: FileText },
+];
 
 const Hero = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>(
+
+  
   ({ className, ...props }, ref) => {
     return (
       <section
@@ -73,6 +84,7 @@ const Hero = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>(
             className="z-50 text-center text-white text-lg"
           >
             <div>
+              <NavBar items={navItems} />
               <Hero1 />
             </div>
           </motion.div>
