@@ -87,7 +87,7 @@ function Hero1() {
               speed="5s"
               className="custom-class group relative z-10 bg-slate-950 text-zinc-200 overflow-hidden text-xl duration-1000 cursor-pointer"
             >
-              <a href="https://github.com/ianneyy/VerifAI-SPA/releases/download/v1.01.0/verifai.apk" className="flex gap-4 text-center items-center">
+              <a href="https://github.com/ianneyy/VerifAI-SPA/releases/download/v1.0.1/verifai-v1.0.1.apk" className="flex gap-4 text-center items-center">
                 <ShinyText
                   text="Download VerifAI"
                   disabled={false}
