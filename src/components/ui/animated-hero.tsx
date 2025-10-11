@@ -7,8 +7,20 @@ import ShinyText from "@/components/blocks/TextAnimations/ShinyText/ShinyText";
 import StarBorder from "@/components/blocks/Animations/StarBorder/StarBorder";
 // import gadon from "@/assets/gadon.jpg";
 
+interface GithubAsset {
+  name: string;
+  browser_download_url: string;
+}
+
+interface GithubRelease {
+  assets?: GithubAsset[];
+}
+
+
 function Hero1() {
   const [titleNumber, setTitleNumber] = useState(0);
+   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
+
   const titles = useMemo(
     () => [
       "accurately",
@@ -31,6 +43,31 @@ function Hero1() {
     return () => clearTimeout(timeoutId);
   }, [titleNumber, titles]);
 
+
+  useEffect(() => {
+    async function fetchLatestRelease() {
+      try {
+        const response = await fetch(
+          "https://api.github.com/repos/ianneyy/VerifAI-SPA/releases/latest"
+        );
+        const data: GithubRelease = await response.json();
+
+        const apkAsset = data.assets?.find((asset) =>
+          asset.name.endsWith(".apk")
+        );
+
+        if (apkAsset) {
+          setDownloadUrl(apkAsset.browser_download_url);
+        } else {
+          console.error("No APK file found in the latest release");
+        }
+      } catch (error) {
+        console.error("Error fetching release info:", error);
+      }
+    }
+
+    fetchLatestRelease();
+  }, []);
   return (
     <div className="w-full">
       <div className="container mx-auto">
@@ -87,10 +124,13 @@ function Hero1() {
               speed="5s"
               className="custom-class group relative z-10 bg-slate-950 text-zinc-200 overflow-hidden text-xl duration-1000 cursor-pointer"
             >
-              <a href="https://github.com/ianneyy/VerifAI-SPA/releases/download/v1.0.2/verifai-v1.0.2.apk" className="flex gap-4 text-center items-center">
+              <a href={downloadUrl || "#"}
+                className={`flex gap-4 text-center items-center ${
+                  !downloadUrl ? "opacity-50 pointer-events-none" : ""
+                }`}>
                 <ShinyText
-                  text="Download VerifAI"
-                  disabled={false}
+                   text={downloadUrl ? "Download VerifAI" : "Loading..."}
+                  disabled={!downloadUrl}
                   speed={3}
                   className="custom-class"
                 />
