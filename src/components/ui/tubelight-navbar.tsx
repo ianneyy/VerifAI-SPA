@@ -1,13 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { type LucideIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 interface NavItem {
   name: string
   url: string
-  icon: LucideIcon
+  icon: React.ComponentType<{ size?: number; strokeWidth?: number }>
 }
 
 interface NavBarProps {
@@ -32,7 +31,7 @@ export function NavBar({ items, className }: NavBarProps) {
   return (
     <div
       className={cn(
-        "fixed bottom-0 top-auto sm:top-0 sm:bottom-auto left-1/2 -translate-x-1/2 mb-6 sm:pt-6",
+        "relative",
         className
       )}
     >

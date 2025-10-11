@@ -2,15 +2,14 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Hero1 } from "@/components/ui/animated-hero";
-import { Home, User, Briefcase, FileText } from "lucide-react";
-import { NavBar } from "@/components/ui/tubelight-navbar";
+// import { Home, User, Briefcase } from "lucide-react";
+// import { NavBar } from "@/components/ui/tubelight-navbar";
 
-const navItems = [
-  { name: "Home", url: "#", icon: Home },
-  { name: "About", url: "#", icon: User },
-  { name: "Projects", url: "#", icon: Briefcase },
-  { name: "Resume", url: "#", icon: FileText },
-];
+// const navItems = [
+//   { name: "Home", url: "#", icon: Home },
+//   { name: "About", url: "#about", icon: User },
+//   { name: "How It Works", url: "#how", icon: Briefcase },
+// ];
 
 const Hero = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>(
 
@@ -25,6 +24,7 @@ const Hero = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>(
         )}
         {...props}
       >
+       
         <div className="absolute top-0 isolate z-0 flex w-screen flex-1 items-start justify-center">
           {/* Optional top blur */}
           <div className="absolute top-0 z-50 h-48 w-screen bg-transparent opacity-10 backdrop-blur-md" />
@@ -84,7 +84,6 @@ const Hero = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>(
             className="z-50 text-center text-white text-lg"
           >
             <div>
-              <NavBar items={navItems} />
               <Hero1 />
             </div>
           </motion.div>
